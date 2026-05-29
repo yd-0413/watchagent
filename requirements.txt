@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+requests
+sqlalchemy
+pydantic
+pytest
+httpx
+apscheduler
+python-dotenv
+certifi

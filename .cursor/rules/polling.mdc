@@ -1,0 +1,13 @@
+# Polling and Deduplication Rules
+
+When modifying the weather poller, always preserve city-level deduplication using city + timestamp.
+
+If an Open-Meteo API call fails, log the city name, HTTP status if available, retry count if available, and error message at WARNING level. Do not crash the whole poller because one city failed.
+
+The poller must continue polling the remaining cities even if one city request fails.
+
+Never store duplicate readings for the same city and timestamp.
+
+The poller should only store a reading when the timestamp is new for that city because Open-Meteo updates hourly and repeated polls can return the same reading.
+
+Database writes should be committed only after the reading or event is valid.

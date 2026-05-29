@@ -1,0 +1,13 @@
+# Event Record Rules
+
+Every notable event must include city, timestamp, event_type, severity, summary, reason, and reading_id.
+
+The reason field must explain the exact threshold or comparison that caused the event to fire.
+
+Do not create vague event summaries. A reviewer should understand what happened without reading the source code.
+
+Event detection logic should balance sensitivity and noise. Avoid firing repeated events for the same city, timestamp, and event_type.
+
+When adding a new event type, also add a unit test that proves when it should fire and when it should not fire.
+
+Event definitions should be useful to someone monitoring weather across Ottawa, Toronto, and Vancouver, not just technically correct.
